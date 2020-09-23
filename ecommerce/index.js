@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 // Requerir mis módulos de ruta
 const productsRouter = require('./routes/products');
+const productsApiRouter = require('./routes/api/products');
 
 // Registrar middleware de archivoes estáticos
 
@@ -18,6 +19,7 @@ app.set("view engine", "pug");
 
 // endpoints productos
 app.use('/products', productsRouter)
+app.use("/api/products", productsApiRouter);
 
 const server = app.listen(8000, function() {
     console.log(`Listening http://localhost:${server.address().port}`)
